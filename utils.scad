@@ -51,3 +51,24 @@ module dift() {
         children(1);
    }
 }
+
+module mirx() {
+    children(0);
+    mirror([1,0,0]) {
+        children(0);
+   }
+}
+
+module miry() {
+    children(0);
+    mirror([0,1,0]) {
+        children(0);
+   }
+}
+
+module mirz() {
+    children(0);
+    mirror([0,0,1]) {
+        children(0);
+   }
+}
