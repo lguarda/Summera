@@ -1,5 +1,5 @@
 module trapeze(base, top, height, lentgth) {
-    scale([1,1,height])
+    linear_extrude(height = height, center=true)
         hull() {
             square([base,0.0001], center=true);
             mv(0,lentgth,0)
