@@ -2,7 +2,7 @@ include<utils.scad>
 include<hexagone.scad>
 include<trapeze.scad>
 
-hexa_spacing=38;
+hexa_spacing=28;
 hexa_height=30;
 hexa_key=6;
 
@@ -17,7 +17,7 @@ fid() {
         }
     }
     union(){
-        mv(0,-10,0) {
+        mv(0,-11,0) {
             dif() {
                 rot(0,90,0) {
                     fid() {
@@ -40,8 +40,11 @@ fid() {
             mv(0,0.5,-antena_key/2-antena_protlen/4)
                 cube([hexa_spacing+11,11,antena_protlen/2], center=true);
 
-            mv(0,-14,-antena_key/2-antena_protlen/4)
-                trapeze(antena_heigh+2, hexa_spacing+11, antena_protlen/2, 9);
+            mv(0,-15,-antena_key/2-antena_protlen/4)
+                trapeze(antena_heigh+2, hexa_spacing+11, antena_protlen/2, 10);
         }
     }
 }
+
+/*rot(0,90,0)*/
+/*#Hexagone(2, 28);*/

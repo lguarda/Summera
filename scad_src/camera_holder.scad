@@ -4,11 +4,11 @@ include<trapeze.scad>
 
 $fn=100;
 in=2.8;
-out=4.85;
+out=5.85;
 h=30;
 
 camera_screw_diam=2;
-camera_depth=15;
+camera_depth=15.5;
 camera_spacing=19;
 camera_holder_height=19;
 spacer_dist=28;
@@ -17,8 +17,8 @@ side_length=camera_holder_length-8.46;
 angle_both=2;
 
 dif() {
-mirx()
-mirror()
+/*mirx()*/
+/*mirror()*/
     union() {
         mv(spacer_dist/2,0,0) {
             rot(0,0,18+angle_both)
@@ -42,8 +42,4 @@ rot(0,90,0)
 cylinder(h=100, d=camera_screw_diam,center=true);
 }
 
-
-mv(0,19,0)
-cube([19,1,1], center=true);
-
-
+//v3 change space size from 4.85 to 5.85

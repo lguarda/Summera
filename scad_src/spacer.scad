@@ -3,7 +3,7 @@ include<hexagone.scad>
 
 $fn=100;
 in=2.8;
-out=4.85;
+out=5.85;
 h=30;
 
 camera_screw_diam=2;
