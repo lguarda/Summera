@@ -46,9 +46,12 @@ function bezier_weighted_point(point, step) =
 function bezier_list(points, step) =
     [
     for (i=[0:step])
-        len(points[0]) > 3
-            ? bezier_weighted_point(points, 1/step * i)
-            : bezier_point(points, 1/step * i)
+        /*len(points[0]) > 3*/
+            /*? bezier_weighted_point(points, 1/step * i)*/
+            /*: bezier_point(points, 1/step * i)*/
+        /*len(points[0]) > 3*/
+            /*? bezier_weighted_point(points, 1/step * i)*/
+            bezier_point(points, 1/step * i)
     ];
 
 module line(p1, p2, r) {
@@ -60,9 +63,38 @@ module line(p1, p2, r) {
     }
 }
 
+module cyle(p1, p2, r1, r2) {
+    hull() {
+        translate(p1) {
+            cylinder(r=r1, h=0.1);
+        }
+        translate(p2) {
+            cylinder(r=r2, h=0.1);
+        }
+    }
+}
+
+function vec4_to_3(vec) = [vec[0], vec[1], vec[2]];
+
 module polyline(points, r) {
     for ( i = [0 : len(points)-2] ) {
         line(points[i], points[i+1], r);
+    }
+}
+
+module polycyle(points, r) {
+    for ( i = [0 : len(points)-2] ) {
+        cyle(vec4_to_3(points[i]), vec4_to_3(points[i+1]), points[i][3], points[i+1][3]);
+    }
+}
+
+module polycyle_multi(multi) {
+    for ( i = [0 : len(multi[0])-2] ) {
+        hull() {
+            for ( j = [0 : len(multi)-1] ) {
+                cyle(vec4_to_3(multi[j][i]), vec4_to_3(multi[j][i+1]), multi[j][i][3], multi[j][i+1][3]);
+            }
+        }
     }
 }
 
@@ -72,5 +104,5 @@ module plot_example_curve() {
     p3=[0, -50, 0, 1];
     p4=[-20, -40, 0, 1];
     step=50;
-    polyline(bezier_list([p1, p2, p3, p4], step));
+    polycyle(bezier_list([p1, p2, p3, p4], step));
 }

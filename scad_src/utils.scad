@@ -21,6 +21,12 @@ module rot(x, y, z) {
    }
 }
 
+module rez(x, y, z) {
+    scale([x,y,z]) {
+        children([0 : $children]);
+   }
+}
+
 module trans() {
     %children();
 }
@@ -61,6 +67,13 @@ module dift() {
         hash()
         children(1);
    }
+}
+
+module mirrot(x, y ,z) {
+    children(0);
+    rotate([x, y, z]) {
+        children(0);
+    }
 }
 
 module mirx() {
