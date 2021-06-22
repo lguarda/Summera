@@ -1,12 +1,23 @@
+module part(name) {
+    echo(PART);
+    if (PART == undef || PART == name) {
+        children([0 : $children -1]);
+    }
+    else {
+        %children([0 : $children -1]);
+    }
+}
+
 module mv(x, y, z) {
     translate([x,y,z]) {
-        children([0 : $children]);
+        children([0 : $children -1]);
+
    }
 }
 
 module rot(x, y, z) {
     rotate([x,y,z]) {
-        children([0 : $children]);
+        children([0 : $children -1]);
    }
 }
 
