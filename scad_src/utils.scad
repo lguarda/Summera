@@ -1,5 +1,4 @@
 module part(name) {
-    echo(len(search(name, PART)));
     if (PART == undef || PART == name) {
         children([0 : $children -1]);
     }
@@ -106,6 +105,18 @@ module mirrot(x, y ,z) {
     rotate([x, y, z]) {
         children(0);
     }
+}
+
+module mx() {
+    mirror([1,0,0]) {
+        children([0:$children-1]);
+   }
+}
+
+module my() {
+    mirror([0,1,0]) {
+        children([0:$children-1]);
+   }
 }
 
 module mirx() {

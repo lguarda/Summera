@@ -1,4 +1,5 @@
 include<utils.scad>
 
 
-cube([40,10,5]);
+cube([100,2,2]);
+cube([2,100,2]);
