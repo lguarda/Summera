@@ -63,6 +63,22 @@ module zrot(z)
     }
 }
 
+module yrot(y)
+{
+    rotate([ 0, y, 0 ])
+    {
+        children([0:$children - 1]);
+    }
+}
+
+module xrot(x)
+{
+    rotate([ x, 0, 0 ])
+    {
+        children([0:$children - 1]);
+    }
+}
+
 module rez(x, y, z)
 {
     scale([ x, y, z ])
