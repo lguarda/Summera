@@ -5,11 +5,19 @@ module pieSlice(a, r, h){
   rotate_extrude(angle=a) square([r,h]);
 }
 
-module props3() {
+module props(inch=3) {
     for ( i = [0:1:3]) {
         zrot(i * 90)
-        pieSlice(40,inch_mm(3)/2,3);
+        pieSlice(40,inch_mm(inch)/2,3);
     }
 }
 
-props3();
+module props_true_x(inch=3)
+    mym(inch_mm(3))
+    mxm(inch_mm(3)) {
+        props(inch);
+    }
+
+
+props(3.5);
+props_true_x(2);

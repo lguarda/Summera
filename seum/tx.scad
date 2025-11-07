@@ -1,4 +1,4 @@
-include <Aremus/utils.scad>
+use <Aremus/utils.scad>
 
 // Weight: 0.46g (Flat Antenna V1.2), 0.47g (Tower Antenna)
 // Size: 11mm*10mm*3mm (Flat), 10mm*10mm*6mm (Tower)
@@ -10,6 +10,7 @@ include <Aremus/utils.scad>
 
 module tx() {
     kube(11,10, 3);
+    zrot(90)
     my(-4)
     mxm(2.4)
     mxm(1.2)

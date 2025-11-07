@@ -28,7 +28,7 @@ include <Aremus/utils.scad>
 // Dimensions: 36 * 36 mm
 // Poids : 6.9g
 
-module dfrf722() {
+module fc() {
     dif() {
         kube(36,36, 4);
 
@@ -41,4 +41,4 @@ module dfrf722() {
     }
 }
 
-dfrf722();
+fc();
