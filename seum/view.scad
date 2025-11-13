@@ -1,36 +1,39 @@
 use <Aremus/utils.scad>
-use <props3.scad>
+use <arms.scad>
+use <bottom_plate.scad>
 use <esc.scad>
 use <fc.scad>
 use <gps.scad>
-use <vtx.scad>
-use <tx.scad>
-use <arms.scad>
 use <motor_base.scad>
+use <props3.scad>
+use <tx.scad>
+use <vtx.scad>
 
-fc_esc_spacing=10;
+use <part_main_frame.scad>
+use <part_top_plate.scad>
 
-mz(30)
-props_true_x();
+fc_spacing = 8;
+esc_spacing = 6;
 
-mx(-42) {
-    co(0.5, 0.2, 0.2)
-    vtx();
-    mz(10)
-    tx();
+mz(15) props_true_x();
+
+mx(-42)
+{
+    co(0.5, 0.2, 0.2) vtx();
+    mz(10) tx();
 }
 
-co(1, 0, 0)
-esc();
 
-mz(fc_esc_spacing)
-co(1, 0, 1)
-fc();
+mz(esc_spacing)
+co(1, 0, 0) esc();
 
-mz(50)
-co(1, 1, 0)
-gps();
+mz(fc_spacing + esc_spacing) co(1, 0, 1) fc();
 
-arms2();
+mz(50) co(1, 1, 0) gps();
 
+xrot(180)
+part_main_frame();
+
+mz(21)
+part_top_plate(h=2, center=false);
 // Dimensions: 33.6*22.8*4.1 mm
